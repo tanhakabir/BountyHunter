@@ -6,7 +6,7 @@ const app = express();
 const Server = http.Server(app);
 const io = require('socket.io')(Server);
 
-const PORT = require('../src/constants')
+const PORT = process.env.PORT || 3231
 
 // SERVING WEB CONTENT
 app.use(express.static(path.join(__dirname, '../build')));

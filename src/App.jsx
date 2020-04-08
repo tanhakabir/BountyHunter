@@ -4,7 +4,7 @@ import './App.css';
 
 import port from './constants';
 
-var socket = io(window.location.protocol + '//' + window.location.hostname + ':' + port);
+var socket = io();
 
 class App extends React.Component {
   state = {};
@@ -16,8 +16,6 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
-    console.log('listening on port', port)
   }
 
   componentDidMount() {
