@@ -17,12 +17,12 @@ app.get('/', function(req, res) {
 
 // app.use(cors())
 
-app.listen(SERVE_PORT);
+app.listen(SERVE_PORT, () => console.log('Web server running on: ', SERVE_PORT));
 
 
 // CONNECTING TO CLIENT
-const SOCKET_PORT = 9001
-Server.listen(SOCKET_PORT, () => console.log('Game server running on:', SOCKET_PORT))
+const SIGNAL_PORT = 9001
+Server.listen(SIGNAL_PORT, () => console.log('Signalling server running on:', SIGNAL_PORT))
 
 io.on('connection', function(socket){
 	socket.on('chat message', function(msg){
