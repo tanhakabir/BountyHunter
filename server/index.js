@@ -9,10 +9,10 @@ const io = require('socket.io')(Server);
 const SERVE_PORT = process.env.PORT || 443
 
 // SERVING WEB CONTENT
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+	res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // app.use(cors())
