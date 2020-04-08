@@ -2,7 +2,7 @@ import React from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-var socket = io('http://localhost:9001');
+var socket = io(window.location.origin + ':9001');
 
 class App extends React.Component {
   state = {};
