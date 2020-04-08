@@ -3,9 +3,12 @@ const app = express()
 const cors = require('cors')
 const path = require('path')
 
-app.use(express.static(path.join(__dirname, './../../dist/client')))
-app.use('/assets', express.static(path.join(__dirname, './../../client/assets')))
-app.use('/vendor', express.static(path.join(__dirname, './../../vendor')))
-app.use(cors())
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// app.use(cors())
 
 module.exports = app
