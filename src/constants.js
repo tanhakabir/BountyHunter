@@ -1,3 +1,3 @@
-const PORT = 80
+const DEFAULT_PORT = 3231
 
-module.exports = PORT
+module.exports = DEFAULT_PORT

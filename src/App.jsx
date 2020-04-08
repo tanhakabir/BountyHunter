@@ -2,9 +2,14 @@ import React from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-import port from './constants';
+import defaultPort from './constants';
 
-var socket = io(window.location.protocol + '//' + window.location.hostname + ':' + port);
+var socket;
+if(process.env.NODE_ENV !== 'production') {
+  socket = io(window.location.protocol + '//' + window.location.hostname + ':' + defaultPort);
+} else {
+  socket = io();
+}
 
 class App extends React.Component {
   state = {};
