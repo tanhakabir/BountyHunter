@@ -2,7 +2,9 @@ import React from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-var socket = io(window.location.origin + ':9001');
+import port from './constants';
+
+var socket = io(window.location.protocol + '//' + window.location.hostname + ':' + port);
 
 class App extends React.Component {
   state = {};
@@ -14,6 +16,8 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    console.log('listening on port', port)
   }
 
   componentDidMount() {
@@ -29,6 +33,7 @@ class App extends React.Component {
 
   handleSubmit(event) {
     socket.emit('chat message', this.state.value);
+    console.log('sending', this.state.value)
     this.setState({value: ""})
     event.preventDefault();
   }

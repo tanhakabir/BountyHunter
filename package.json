@@ -15,7 +15,7 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "dev": "concurrently 'react-scripts start' 'node server/index.js'",
+    "dev": "concurrently 'react-scripts start' 'npm run start'",
     "start": "node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
